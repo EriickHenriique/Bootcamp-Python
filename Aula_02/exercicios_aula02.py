@@ -141,5 +141,3 @@ def numdif():
     num2 = int(input('Digite um número: '))
     resultado = print(num1 != num2)
     return resultado
-
-numdif()
