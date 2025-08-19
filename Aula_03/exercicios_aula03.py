@@ -76,25 +76,99 @@ def ValidaçãoEntrada():
 # a R$ 10.000 ou se ocorrer fora do horário comercial (antes das 9h ou depois das 18h). 
 # Dada uma transação como `transacao = {'valor': 12000, 'hora': 20}`, verifique se ela é suspeita.
 
+def TransacSuspeita():
+    transacao = {'valor': 12000, 'hora': 20}
+    if transacao['valor'] >= 1000 and (transacao['hora'] > 18 or transacao['hora'] < 9):
+        print('Transação Suspeita')
+    else:
+        print('Transação Normal')
+
+
 ### Exercício 6. Contagem de Palavras em Textos
 # Objetivo:** Dado um texto, contar quantas vezes cada palavra única aparece nele.
+# Measure some strings:
+def contadorpalavras():
+    texto = "a raposa marrom salta sobre o cachorro preguiçoso e a raposa salta novamente"
+    palavras = texto.split()
+    contagem_palavras = {}
+
+    for palavra in palavras:
+        if palavra in contagem_palavras:
+            contagem_palavras[palavra] += 1
+        else:
+            contagem_palavras[palavra] = 1
+    print(contagem_palavras)
 
 ### Exercício 7. Normalização de Dados
 # Objetivo:** Normalizar uma lista de números para que fiquem na escala de 0 a 1.
+def Normalizacao():
+    numeros = [10, 20, 30, 40, 50]
+    minimo = min(numeros)
+    maximo = max(numeros)
+    normalizados = [(x - minimo) / (maximo - minimo) for x in numeros]
+
+    print(normalizados)
 
 ### Exercício 8. Filtragem de Dados Faltantes
 # Objetivo:** Dada uma lista de dicionários representando dados de usuários, filtrar aqueles que têm um campo específico faltando
 
+def email():
+    usuarios = [
+        {"nome": "Alice", "email": "alice@example.com"},
+        {"nome": "Bob", "email": ""},
+        {"nome": "Carol", "email": "carol@example.com"}
+    ]
+    usuarios_validos = [usuario for usuario in usuarios if usuario["email"]]
+    print(usuarios_validos)
+
+
 ### Exercício 9. Extração de Subconjuntos de Dados
 # Objetivo:** Dada uma lista de números, extrair apenas aqueles que são pares.
 
+def NumPaR():
+    num = [2,4,5,6,1,4,9]
+    listapar = []
+    for i in num:
+        if i % 2 == 0:
+            listapar.append(i)
+    print(listapar)
+
+
+
 ### Exercício 10. Agregação de Dados por Categoria
 # Objetivo:** Dado um conjunto de registros de vendas, calcular o total de vendas por categoria.
+
+def vendacat():
+    vendas = [
+        {"categoria": "eletrônicos", "valor": 1200},
+        {"categoria": "livros", "valor": 200},
+        {"categoria": "eletrônicos", "valor": 800}
+    ]
+
+    total_por_categoria = {}
+    for venda in vendas:
+        categoria = venda["categoria"]
+        valor = venda["valor"]
+        if categoria in total_por_categoria:
+            total_por_categoria[categoria] += valor
+        else:
+            total_por_categoria[categoria] = valor
+
+    print(total_por_categoria)
+
+
 
 ### Exercícios com WHILE
 
 ### Exercício 11. Leitura de Dados até Flag
 # Ler dados de entrada até que uma palavra-chave específica ("sair") seja fornecida.
+
+def condicao():
+    palavra = input('Digite uma palavra: ')
+    while palavra != 'Sair':
+        palavra = input('Digite uma palavra: ')
+    print('Ok')
+    
 
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
