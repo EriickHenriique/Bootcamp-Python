@@ -156,28 +156,64 @@ def vendacat():
 
     print(total_por_categoria)
 
-
-
 ### Exercícios com WHILE
 
 ### Exercício 11. Leitura de Dados até Flag
 # Ler dados de entrada até que uma palavra-chave específica ("sair") seja fornecida.
 
 def condicao():
-    palavra = input('Digite uma palavra: ')
-    while palavra != 'Sair':
-        palavra = input('Digite uma palavra: ')
-    print('Ok')
-    
+    entrada = ""
+    while entrada.lower() != "sair":
+        entrada = input("Digite um valor (ou 'sair' para terminar): ")
+        if entrada.lower() == "sair":
+            print('Saida')
+
 
 ### Exercício 12. Validação de Entrada
 # Solicitar ao usuário um número dentro de um intervalo específico até que a entrada seja válida.
+def ValidacaoEntrada2():
+    numero = int(input("Digite um número entre 1 e 10: "))
+    while numero < 1 or numero > 10:
+        print("Número fora do intervalo!")
+        numero = int(input("Por favor, digite um número entre 1 e 10: "))
+    print("Número válido!")
 
 ### Exercício 13. Consumo de API Simulado
 # Simular o consumo de uma API paginada, onde cada "página" de dados é processada em loop até que não haja mais páginas.
+def ConsumerAPI():
+    pagina_atual = 1
+    paginas_totais = 5  # Simulação, na prática, isso viria da API
+    while pagina_atual <= paginas_totais:
+        print(f"Processando página {pagina_atual} de {paginas_totais}")
+        # Aqui iria o código para processar os dados da página
+        pagina_atual += 1
+    print("Todas as páginas foram processadas.")
+
+
 
 ### Exercício 14. Tentativas de Conexão
 # Simular tentativas de reconexão a um serviço com um limite máximo de tentativas.
 
+def conexaomax():
+    tentativa = 1
+    tentativa_max = 5
+    while tentativa <= tentativa_max:
+        print(f'Tentativa numero: {tentativa}. Limite de: {tentativa_max}')
+        tentativa += 1
+    else:
+        print('Limite de tentativa expirado')
+
 ### Exercício 15. Processamento de Dados com Condição de Parada
 # Processar itens de uma lista até encontrar um valor específico que indica a parada.
+
+def lista_validador():
+    itens = [1, 2, 3, "parar", 4, 5]
+
+    i = 0
+    while i < len(itens):
+        if itens[i] == "parar":
+            print("Parada encontrada, encerrando o processamento.")
+            break
+        # Processa o item
+        print(f"Processando item: {itens[i]}")
+        i += 1
